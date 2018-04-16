@@ -1,7 +1,7 @@
 {
-  "name": "Weather-App",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "name": "WeatherApp",
+  "version": "1.0.0",
+  "author": "Chamith Sandagiri",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {

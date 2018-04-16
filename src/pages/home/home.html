@@ -3,16 +3,33 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Weather</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="body">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<div *ngIf="weather; then val else err"></div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ng-template #val>
+    <div align="center">
+      <h3>{{weather.location.country}}, {{weather.location.name}}</h3>
+      <img src="{{weather.current.condition.icon}}" alt="weather state image">
+      <h5>{{weather.current.condition.text}}</h5>
+      <h1>{{weather.current.temp_c}} <sup>o</sup>C</h1>
+    </div>
+      <br>
+    <ion-list>
+      <ion-item class="list">Temperature:{{weather.current.temp_f}} <sup>o</sup>F</ion-item>
+      <ion-item class="list">Relative Humidity: {{weather.current.humidity}}%</ion-item>
+      <ion-item class="list">Wind Speed: {{weather.current.wind_kph}} km/h</ion-item>
+      <ion-item class="list">Precipitation: {{weather.current.precip_mm}} mm</ion-item>
+
+    </ion-list>
+  </ng-template>
+
+  <ng-template #err>
+      <h3 align="center">City not found...</h3>
+  </ng-template>
+
 </ion-content>
